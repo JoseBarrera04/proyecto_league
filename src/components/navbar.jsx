@@ -1,55 +1,20 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import "../styles/navbar.css";
 
-function Navbar() {
-    const location = useLocation();
-    const { isAuthenticated } = useSelector((state) => state.auth);
-
+const Navbar = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/user" className={location.pathname === '/user' ? 'active' : ''}>
-                        Usuario
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/news" className={location.pathname === '/news' ? 'active' : ''}>
-                        Noticias
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/friends" className={location.pathname === '/friends' ? 'active' : ''}>
-                        Chat/Lista amigos
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/community" className={location.pathname === '/community' ? 'active' : ''}>
-                        Comunidad
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
-                        Ajustes
-                    </Link>
-                </li>
-                {isAuthenticated ? (
-                    <li>
-                        <Link to="/logout" className={location.pathname === '/logout' ? 'active' : ''}>
-                            Cerrar Sesión
-                        </Link>
-                    </li>
-                ) : (
-                    <li>
-                        <Link to="/login" className={location.pathname === '/login' ? 'active' : ''}>
-                            Iniciar Sesión
-                        </Link>
-                    </li>
-                )}
-            </ul>
-        </nav>
+        <header className = {"header"}>
+            <a href = {"/"} className = {"logo"}> Lolsito </a>
+            <nav className = {"navbar"}>
+                <a href = {"/"}> Usuario </a>
+                <a href = {"/"}> E-Sports </a>
+                <a href = {"/"}> Chat </a>
+                <a href = {"/"}> Comunidad </a>
+                <a href = {"/"}> Ajustes </a>
+                <a href = {"/"} className = {"sesion"}> Sesion </a>
+            </nav>
+        </header>
     );
-}
+};
 
 export default Navbar;
