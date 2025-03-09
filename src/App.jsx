@@ -6,14 +6,15 @@ import Login from './pages/Login.jsx';
 import Usuario from './pages/Usuario.jsx';
 import Ajustes from './pages/Ajustes.jsx';
 import "./styles/App.css";
+import Register from "./pages/Register.jsx";
 
 function App() {
     return (
         <div>
-            <Navbar/>
             <Routes>
                 <Route path = "/" element = {<Home />} />
                 <Route path = "/login" element = {<Login/>} />
+                <Route path = "/register" element = {<Register/>} />
                 <Route path = "/usuario" element = {<Usuario />} />
                 <Route path = "/ajustes" element = {<Ajustes />} />
             </Routes>

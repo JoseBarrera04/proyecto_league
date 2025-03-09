@@ -6,12 +6,12 @@ const Navbar = () => {
         <header className = {"header"}>
             <a href = {"/"} className = {"logo"}> Lolsito </a>
             <nav className = {"navbar"}>
-                <a href = {"/"}> Usuario </a>
-                <a href = {"/"}> E-Sports </a>
-                <a href = {"/"}> Chat </a>
-                <a href = {"/"}> Comunidad </a>
-                <a href = {"/"}> Ajustes </a>
-                <a href = {"/"} className = {"sesion"}> Sesion </a>
+                <a href = {"/usuario"}> Usuario </a>
+                <a href = {"/esports"}> E-Sports </a>
+                <a href = {"/chat"}> Chat </a>
+                <a href = {"/comunidad"}> Comunidad </a>
+                <a href = {"/ajustes"}> Ajustes </a>
+                <a href = {"/login"} className = {"sesion"}> Sesion </a>
             </nav>
         </header>
     );
