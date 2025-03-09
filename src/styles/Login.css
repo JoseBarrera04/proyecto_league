@@ -57,12 +57,12 @@
     margin-right: 4px;
 }
 
-.remember-me a {
+.remember-me .link {
     color: #fff;
     text-decoration: none;
 }
 
-.remember-me a:hover {
+.remember-me .link:hover {
     text-decoration: underline;
 }
 
@@ -86,12 +86,12 @@
     margin: 20px 0 15px;
 }
 
-.register-link p a {
+.register-link p .link {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p a:hover {
+.register-link p .link:hover {
     text-decoration: underline;
 }
