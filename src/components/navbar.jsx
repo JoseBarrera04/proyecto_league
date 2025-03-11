@@ -1,6 +1,6 @@
 import React from 'react';
 import "../styles/navbar.css";
-import { Link } from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -12,8 +12,10 @@ const Navbar = () => {
                 <Link to = "/chat" className = {"link"}> Chat </Link>
                 <Link to = "/comunidad" className = {"link"}> Comunidad </Link>
                 <Link to = "/ajustes" className = {"link"}> Ajustes </Link>
-                <Link to = "/login" className = {"sesion"}> Sesion </Link>
+                <Link to = "/login" className = {"sesion"}> Iniciar Sesion </Link>
             </nav>
+
+            <Outlet/>
         </header>
     );
 };
