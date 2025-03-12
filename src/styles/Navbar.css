@@ -1,11 +1,12 @@
 .header {
     position: fixed;
+    font: normal 30px "Beaufort for LOL", sans-serif;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 10%;
     background: transparent;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(20px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,14 +18,16 @@
 }
 
 .logo {
-    font-size: 32px;
+    font-family: 'Beaufort for LOL', sans-serif;
+    font-size: 45px;
     color: white;
     font-weight: 700;
 }
 
 .navbar .link {
+    font-family: 'Beaufort for LOL', sans-serif;
     position: relative;
-    font-size: 10px;
+    font-size: 18px;
     color: white;
     font-weight: 500;
     margin-left: 40px;
@@ -59,7 +62,7 @@
 
 .navbar .sesion {
     position: relative;
-    font-size: 10px;
+    font-size: 18px;
     color: white;
     font-weight: 500;
     margin-left: 40px;

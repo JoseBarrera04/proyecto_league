@@ -1,14 +1,10 @@
 import {FaLock, FaUser} from "react-icons/fa";
 import {MdEmail} from "react-icons/md";
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Login.css";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Register = () => {
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate();
 
     return(
         <div>

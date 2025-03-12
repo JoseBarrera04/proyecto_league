@@ -6,6 +6,7 @@ import Usuario from './pages/Usuario.jsx';
 import Ajustes from './pages/Ajustes.jsx';
 import "./styles/App.css";
 import Register from "./pages/Register.jsx";
+import Comunidad from "./pages/Comunidad.jsx";
 
 function App() {
     return (
@@ -16,6 +17,9 @@ function App() {
                 <Route path = "/register" element = {<Register/>} />
                 <Route path = "/usuario" element = {<Usuario />} />
                 <Route path = "/ajustes" element = {<Ajustes />} />
+                <Route path="/comunidad" element={<Comunidad />} />
+
+
             </Routes>
         </div>
     );
