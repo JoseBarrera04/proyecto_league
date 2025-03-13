@@ -4,6 +4,8 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+
+
     return (
         <div>
             <form className = {"wrapper"}>
@@ -18,7 +20,7 @@ const Login = () => {
                 </div>
                 <div className = {"remember-me"}>
                     <label>
-                        <input type = {"checkbox"} placeholder = {"Remember me"} required = {true}/>
+                        <input type = {"checkbox"} placeholder = {"Remember me"} required = {false}/>
                         Remember me
                     </label>
                 </div>

@@ -22,8 +22,8 @@ const Comunidad = () => {
     return (
         <div className="comunidad-container">
             <div className="contenido-comunidad">
-                <h1 className="comunidad-title">COMUNIDAD</h1>
-                <h2 className="bienvenida-title">¡Bienvenid@ al apartado de Comunidad!</h2>
+                <h1 className="comunidad-title"> COMUNIDAD </h1>
+                <h2 className="bienvenida-title"> ¡Bienvenid@ al apartado de Comunidad! </h2>
 
                 {/* Centrar y espaciar botones */}
                 <div className="botones-container">
