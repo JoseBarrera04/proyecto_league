@@ -33,7 +33,7 @@ const Navbar = () => {
                 <Link to = "/comunidad" className = {"link"}> Comunidad </Link>
                 <Link to = "/ajustes" className = {"link"}> Ajustes </Link>
                 {isLogged ? (
-                    <button onClick={manejarCerrarSesion} className = {"sesion"}> Cerrar sesión </button>
+                    <button onClick = {manejarCerrarSesion} className = {"sesion"}> Cerrar sesión </button>
                 ) : (
                     <Link to = "/login" className = {"sesion"}> Iniciar Sesion </Link>
                 )}
