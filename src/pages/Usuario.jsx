@@ -14,7 +14,6 @@ const Usuario = () => {
 
     return (
         <div>
-            <h1> Usuario: </h1>
             <User/>
         </div>
     );

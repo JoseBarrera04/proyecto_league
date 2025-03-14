@@ -1,42 +1,24 @@
 import {FaLock, FaUser} from "react-icons/fa";
 import {MdEmail} from "react-icons/md";
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Login.css";
 import {Link} from "react-router-dom";
 
 const Register = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-
-    const manejarRegistro = (e) => {
-        e.preventDefault();
-        const userData = {
-            username,
-            password,
-            email,
-        };
-        localStorage.setItem("user", JSON.stringify(userData));
-        alert("Usuario registrado con éxito");
-        setUsername("");
-        setEmail("");
-        setPassword("");
-    };
-
     return(
         <div>
-            <form className = {"wrapper"} onSubmit = {manejarRegistro}>
+            <form className = {"wrapper"}>
                 <h1> Registration </h1>
                 <div className = {"input-box"}>
-                    <input type = {"text"} placeholder = {"Username"} required = {true} value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <input type = {"text"} placeholder = {"Username"} required = {true}/>
                     <FaUser className = {"icon"}/>
                 </div>
                 <div className = {"input-box"}>
-                    <input type = {"text"} placeholder = {"Email"} required = {true} value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input type = {"text"} placeholder = {"Email"} required = {true}/>
                     <MdEmail className = {"icon"}/>
                 </div>
                 <div className = {"input-box"}>
-                    <input type = {"password"} placeholder = {"Password"} required = {true} value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input type = {"password"} placeholder = {"Password"} required = {true}/>
                     <FaLock className = {"icon"}/>
                 </div>
                 <div className = {"remember-me"}>

@@ -4,8 +4,6 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-
-
     return (
         <div>
             <form className = {"wrapper"}>
