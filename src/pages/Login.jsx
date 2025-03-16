@@ -4,6 +4,7 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/slice/authSlice.jsx";
+import { fakeData } from "../fakeData/fakeData.js";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -13,11 +14,18 @@ const Login = () => {
 
     const manejarLogin = (e) => {
         e.preventDefault();
-        const user = {username: username, password: password};
-        localStorage.setItem("user", JSON.stringify(user));
-        dispatch(login(user));
-        navigate("/usuario");
-    }
+        const user = fakeData.find(
+            (u) => u.username === username && u.password === password
+        );
+
+        if (user) {
+            dispatch(login(user));
+            localStorage.setItem("user", JSON.stringify(user));
+            navigate("/usuario");
+        } else {
+            alert("Usuario o contraseña incorrectos");
+        }
+    };
 
     return (
         <div>
