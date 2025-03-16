@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import "../styles/navbar.css";
-import {Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { login, logout } from "../redux/slice/authSlice.jsx";
 
 const Navbar = () => {
-    const [isLogged, setIsLogged] = useState(false);
-    const [username, setUsername] = useState("");
-
+    const isLogged = useSelector((state) => state.auth.isLogged);
+    const username = useSelector((state) => state.auth.username);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user"));
         if (storedUser) {
-            setIsLogged(true);
-            setUsername(storedUser.username);
+            dispatch(login(storedUser));
         }
-    }, []);
+    }, [dispatch]);
 
     const manejarCerrarSesion = () => {
         localStorage.removeItem("user");
-        setIsLogged(false);
-        setUsername("");
+        dispatch(logout());
         navigate("/login");
     };
 

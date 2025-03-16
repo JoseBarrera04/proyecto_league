@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/Login.css";
 import { FaUser, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/slice/authSlice.jsx";
 
 const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const manejarLogin = (e) => {
+        e.preventDefault();
+        const user = {username: username, password: password};
+        localStorage.setItem("user", JSON.stringify(user));
+        dispatch(login(user));
+        navigate("/usuario");
+    }
+
     return (
         <div>
-            <form className = {"wrapper"}>
+            <form className = {"wrapper"} onSubmit = {manejarLogin}>
                 <h1> Login </h1>
                 <div className = {"input-box"}>
-                    <input type = {"text"} placeholder = {"Username"} required = {true}/>
+                    <input type = {"text"} placeholder = {"Username"} required = {true} value = {username} onChange={(e) => setUsername(e.target.value)}/>
                     <FaUser className = {"icon"}/>
                 </div>
                 <div className = {"input-box"}>
-                    <input type = {"password"} placeholder = {"Password"} required = {true}/>
+                    <input type = {"password"} placeholder = {"Password"} required = {true} value = {password} onChange={(e) => setPassword(e.target.value)}/>
                     <FaLock className = {"icon"}/>
                 </div>
                 <div className = {"remember-me"}>
