@@ -7,7 +7,7 @@ export const fakeData = [
         profileIcon: "src/images/ZeriP.jpg",
 
         rankedSolo: {
-            tier: "src/images/Maestro.png",
+            tier: "Maestro",
             rank: "I",
             lp: 0,
             wins: 10,
@@ -35,7 +35,7 @@ export const fakeData = [
         profileIcon: "src/images/ZeriP.jpg",
 
         rankedSolo: {
-            tier: "src/images/Esmeralda.png",
+            tier: "Esmeralda",
             rank: "I",
             lp: 0,
             wins: 0,
