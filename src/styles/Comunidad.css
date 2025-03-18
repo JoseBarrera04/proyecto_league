@@ -136,12 +136,103 @@
 
 /* Contenedor del foro */
 .foro-container {
+    width: 95%;  /* Ahora ocupa casi toda la pantalla */
+    max-width: 1200px; /* Se expande hasta 1200px */
+    height: 450px; /* Aumentamos la altura */
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px); /* Aumentamos el desenfoque */
+    padding: 25px;
+    border-radius: 15px;
     text-align: center;
-    margin-top: 30px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    color: white;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Título del foro */
+.foro-title {
+    font-family: "Beaufort for LOL", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.foro-scroll {
+    max-height: 380px;
+    height: auto;
+    overflow-y: auto;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre comentarios */
+}
+
+/* Cada opinión */
+.opinion {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 18px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+/* Nombre del usuario */
+.opinion-usuario {
+    font-family: "Beaufort for LOL", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #F5B1B2;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+/* Texto del comentario */
+.opinion-texto {
+    font-family: "Beaufort for LOL", sans-serif;
+    font-size: 19px;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Personalizar la barra de desplazamiento */
+.foro-scroll::-webkit-scrollbar {
+    width: 14px; /* Más ancha */
+}
+
+.foro-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
 }
+
+.foro-scroll::-webkit-scrollbar-thumb {
+    background: #F5B1B2;
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.foro-scroll::-webkit-scrollbar-thumb:hover {
+    background: #E28A8B;
+}
+
+.opinion-header {
+    display: flex;
+    align-items: center; /* Alinea el ícono con el texto */
+    gap: 12px; /* Espacio entre el ícono y el nombre */
+}
+
+.opinion-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Hace que el icono sea redondo */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
+    margin-bottom: 5px;
+}
+
+
+
 
 
 
