@@ -8,20 +8,24 @@ import Ajustes from './pages/Ajustes.jsx';
 import Register from "./pages/Register.jsx";
 import Comunidad from "./pages/Comunidad.jsx";
 import Chat from "./pages/Chat.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
     return (
-        <div>
-            <Routes>
-                <Route path = "/" element = {<Home />} />
-                <Route path = "/login" element = {<Login/>} />
-                <Route path = "/register" element = {<Register/>} />
-                <Route path = "/usuario" element = {<Usuario/>} />
-                <Route path = "/comunidad" element = {<Comunidad/>}/>
-                <Route path = "/ajustes" element = {<Ajustes/>} />
-                <Route path = "/chat" element = {<Chat/>} />
-            </Routes>
-        </div>
+        <>
+            <Navbar />
+            <div className="app-content">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/usuario" element={<Usuario />} />
+                    <Route path="/comunidad" element={<Comunidad />} />
+                    <Route path="/ajustes" element={<Ajustes />} />
+                    <Route path="/chat" element={<Chat />} />
+                </Routes>
+            </div>
+        </>
     );
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import "../styles/navbar.css";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout } from "../redux/slice/authSlice.jsx";
 
@@ -38,7 +38,6 @@ const Navbar = () => {
                     <Link to = "/login" className = {"sesion"}> Iniciar Sesion </Link>
                 )}
             </nav>
-            <Outlet/>
         </header>
     );
 };

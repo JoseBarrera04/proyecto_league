@@ -38,6 +38,8 @@
     width: 80%;
     max-width: 1200px;
     text-align: center;
+    max-height: 500px;
+    padding-bottom: 100px;
 }
 
 /* Estilo del título */

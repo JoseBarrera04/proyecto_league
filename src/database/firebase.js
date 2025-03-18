@@ -1,12 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import dotenv from 'dotenv';
 
-dotenv.config();
+//apiKey: import.meta.env.API_KEY,
 
 const firebaseConfig = {
-    apiKey: import.meta.env.API_KEY,
+    apiKey: "AIzaSyDIKWqpfVKmhSyg1fNXorIGuO9WeMP9uIE",
     authDomain: "proyectolol-d47f0.firebaseapp.com",
     projectId: "proyectolol-d47f0",
     storageBucket: "proyectolol-d47f0.firebasestorage.app",
