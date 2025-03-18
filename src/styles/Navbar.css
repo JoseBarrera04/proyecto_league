@@ -1,38 +1,60 @@
+/* Estilos Generales */
 .header {
     position: fixed;
-    font: normal 30px "Beaufort for LOL", sans-serif;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 10%;
-    background: transparent;
+    padding: 15px 5%; /* Reducido para pantallas más pequeñas */
+    background: rgba(26, 30, 46, 0.9); /* Fondo oscuro semi-transparente */
     backdrop-filter: blur(20px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    font-family: 'Beaufort for LOL', sans-serif;
 }
 
-.header .link {
+/* Logo */
+.logo {
+    font-family: 'Beaufort for LOL', sans-serif;
+    font-size: 36px; /* Reducido para mejor ajuste */
+    color: white;
+    font-weight: 700;
     text-decoration: none;
 }
 
-.logo {
-    font-family: 'Beaufort for LOL', sans-serif;
-    font-size: 45px;
-    color: white;
-    font-weight: 700;
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaciado entre enlaces */
+    overflow-x: auto; /* Permite desplazamiento horizontal si los elementos no caben */
+    white-space: nowrap; /* Evita que los enlaces se envuelvan */
+    -webkit-overflow-scrolling: touch; /* Desplazamiento suave en móviles */
 }
 
+/* Ocultar Barra de Desplazamiento (Opcional) */
+.navbar::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Enlaces de la Navbar */
 .navbar .link {
     font-family: 'Beaufort for LOL', sans-serif;
-    position: relative;
-    font-size: 18px;
+    font-size: 16px; /* Reducido para mejor ajuste */
     color: white;
     font-weight: 500;
-    margin-left: 40px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
 }
 
+/* Efecto de Subrayado al Hacer Hover */
 .navbar .link::before {
     content: "";
     position: absolute;
@@ -40,32 +62,34 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #fff;
-    transition: .3s;
+    background: #00aaff; /* Color de acento (azul) */
+    transition: width 0.3s;
 }
 
 .navbar .link:hover::before {
     width: 100%;
 }
 
+.navbar .link:hover {
+    color: #00aaff; /* Color de acento al hacer hover */
+}
+
+/* Botón de Sesión */
 .sesion {
-    border: 5px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
-    border-radius: 5px;
-    padding: 5px 5px;
-}
-
-.header .sesion {
-    text-decoration: none;
-}
-
-.navbar .sesion {
-    position: relative;
-    font-size: 18px;
+    font-family: 'Beaufort for LOL', sans-serif;
+    font-size: 16px; /* Reducido para mejor ajuste */
     color: white;
     font-weight: 500;
-    margin-left: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    transition: background 0.3s, color 0.3s;
 }
 
 .navbar .sesion::before {
@@ -75,10 +99,41 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #fff;
-    transition: .3s;
+    background: #00aaff;
+    transition: width 0.3s;
 }
 
 .navbar .sesion:hover::before {
     width: 100%;
+}
+
+.navbar .sesion:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #00aaff;
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 5%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        overflow-x: hidden; /* No se necesita desplazamiento horizontal en móvil */
+        white-space: normal; /* Permite que el texto se envuelva si es necesario */
+    }
+
+    .navbar .link,
+    .navbar .sesion {
+        margin-left: 0;
+        font-size: 14px; /* Más pequeño en pantallas pequeñas */
+    }
+
+    .logo {
+        font-size: 28px; /* Reducido en pantallas pequeñas */
+    }
 }
