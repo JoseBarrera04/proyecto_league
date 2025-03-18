@@ -24,12 +24,12 @@
 
 .comunidad-container {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     text-align: center;
     width: 100%;
-    min-height: 100vh; /* Ocupa toda la pantalla */
+    min-height: 100vh;
     position: relative;
 }
 
@@ -61,6 +61,7 @@
     text-transform: uppercase;
     text-align: center;
 }
+/* margen bottom para centrar el título*/
 
 /* Contenedor de botones bien centrado */
 .botones-container {
