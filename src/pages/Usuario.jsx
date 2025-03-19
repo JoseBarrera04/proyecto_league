@@ -10,6 +10,24 @@ const Usuario = () => {
         return <div> Por favor, inicia sesión para ver esta página. </div>;
     }
 
+    const partidasRecientes = [
+        {
+            modo: "Arena",
+            winOrLose: "Victoria",
+            tiempo: "23min 15s",
+            kda: "2.67 KDA",
+            resultados: "PENTAKILL",
+        },
+
+        {
+            modo: "Aram",
+            winOrLose: "Derrota",
+            tiempo: "23min 20s",
+            kda: "3.00 KDA",
+            resultados: "HEXAKILL",
+        },
+    ]
+
     const renderContent = () => {
         switch (activeTab) {
             case 'Resumen':

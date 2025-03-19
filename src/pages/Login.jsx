@@ -50,8 +50,8 @@ const Login = () => {
                         rankedSolo: doc.data().rankedSolo || {
                             tier: "Esmeralda",
                             rank: "I",
-                            lp: 0,
-                            wins: 0,
+                            lp: 98,
+                            wins: 5,
                             loses: 0,
                         },
                         recentMatches: doc.data().recentMatches || [],

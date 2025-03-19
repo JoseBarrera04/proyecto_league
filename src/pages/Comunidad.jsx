@@ -22,17 +22,17 @@ const opinionesIniciales = [
         usuario: "XxMain_Akali_BetaxX",
         icono: akali,
         comentario: "La nueva versión 25.05 cambió totalmente el meta. Ahora los asesinos tienen más oportunidades de " +
-            "brillar, especialmente Katarina. Con las nuevas mecánicas de daño y movilidad, siento que la estrategia en mid se volvió mucho más interesante."
+            "brillar, especialmente Akali. Con las nuevas mecánicas de daño y movilidad, siento que la estrategia en mid se volvió mucho más interesante."
     },
     {
-        usuario: "Powder_5",
+        usuario: "TelaShaco",
         icono: powder,
         comentario: "El parche T1.25.2 arruinó mi campeón favorito. Necesita un hotfix urgente!!! Antes, Jinx podía dominar el juego tardío con facilidad, " +
             "pero ahora siento que su velocidad de ataque y daño han sido reducidos de una manera injusta. Otras mejoras en campeones menos utilizados eran necesarias, " +
             "pero esto fue un golpe duro para los main ADC, que de por sí ya era un rol en decadencia."
     },
     {
-        usuario: "DarkNexus",
+        usuario: "Adolf Heimerdinger",
         icono: gangplank,
         comentario: "Me encanta la nueva jugabilidad de la jungla. Los cambios a los campamentos han hecho que farmear " +
             "sea más eficiente y menos frustrante. También noto que hay más incentivos para invadir la jungla enemiga, lo que crea un juego más " +
@@ -46,7 +46,7 @@ const opinionesIniciales = [
             "Creo que deberían darles más herramientas de supervivencia en el próximo parche, o al menos mejorar su sustain."
     },
     {
-        usuario: "RiftKing22",
+        usuario: "TengoSett",
         icono: jinx,
         comentario: "El modo Gladiadores es lo mejor que han añadido en años. ¡Gran trabajo Riot! Este nuevo modo de juego le da un giro interesante a las partidas" +
             " normales. Espero que lo mantengan y no lo eliminen como hicieron con otros modos pasados..."
