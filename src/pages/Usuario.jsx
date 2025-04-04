@@ -1,32 +1,114 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../styles/Usuario.css";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Usuario = () => {
     const [activeTab, setActiveTab] = useState('Resumen');
+    const [datosUsuario, setDatosUsuario] = useState(null);
+    const [puuid, setPuuid] = useState(null);
+    const [historialPartidas, setHistorialPartidas] = useState(null);
+    const [infoPartidas, setInfoPartidas] = useState(null);
+
     const user = useSelector(state => state.auth.username);
+    const REGION = "la1";
+    const API_KEY = "RGAPI-32511dd0-5cd8-4380-9a33-58cfe45c9782";
+
+    useEffect(() => {
+        const getUserData = async () => {
+            try {
+                const respuestaData = await axios.get(
+                    `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/Darth%20Radagon/Elden`,
+                    {
+                        headers: {
+                            'X-Riot-Token': API_KEY,
+                        },
+                    }
+                );
+                setPuuid(respuestaData.data.puuid);
+                setDatosUsuario(respuestaData.data);
+                console.log(respuestaData);
+                console.log(respuestaData.data.gameName);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        getUserData();
+    }, []);
+
+    useEffect(() => {
+        if (!puuid) return;
+
+        const getInvocadorData = async () => {
+            try {
+                const respuestaPlayerData = await axios.get(
+                    `https://la1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}`,
+                    {
+                        headers: {
+                            'X-Riot-Token': API_KEY,
+                        },
+                    }
+                );
+                //setDatosUsuario(respuestaPlayerData.data);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        getInvocadorData();
+    }, [puuid]);
+
+    useEffect(() => {
+        if (!puuid) return;
+
+        const getHistorialPartidas = async () => {
+            try {
+                const historialJugador = await axios.get(
+                    `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=normal&start=0&count=5`,
+                    {
+                        headers: {
+                            'X-Riot-Token': API_KEY,
+                        },
+                    }
+                );
+                setHistorialPartidas(historialJugador.data);
+                console.log(historialPartidas);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        getHistorialPartidas();
+    }, [puuid]);
+
+    useEffect(() => {
+        if (!historialPartidas || historialPartidas.length === 0) return;
+
+        const fetchDetallesPartidas = async () => {
+            try {
+                const getInfoPartidas = historialPartidas.map(async (matchId) => {
+                    const respuestaPartida = await axios.get(
+                        `https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}`,
+                        {
+                            headers: {
+                                'X-Riot-Token': API_KEY,
+                            },
+                        }
+                    );
+                    return respuestaPartida.data;
+                });
+
+                const partidas = await Promise.all(getInfoPartidas);
+                console.log(partidas);
+                setInfoPartidas(partidas);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        fetchDetallesPartidas();
+    }, [historialPartidas]);
 
     if (!user) {
         return <div> Por favor, inicia sesión para ver esta página. </div>;
     }
-
-    const partidasRecientes = [
-        {
-            modo: "Arena",
-            winOrLose: "Victoria",
-            tiempo: "23min 15s",
-            kda: "2.67 KDA",
-            resultados: "PENTAKILL",
-        },
-
-        {
-            modo: "Aram",
-            winOrLose: "Derrota",
-            tiempo: "23min 20s",
-            kda: "3.00 KDA",
-            resultados: "HEXAKILL",
-        },
-    ]
 
     const renderContent = () => {
         switch (activeTab) {
@@ -58,7 +140,7 @@ const Usuario = () => {
                                     <tr>
                                         <td> S2023 S2 </td>
                                         <td>
-                                            <img src="src/images/bronceLol.png" alt = {"src/images/Maestro.png"} /> Maestro I
+                                            <img src="src/images/bronceLol.png" alt="Maestro Icon" /> Maestro I
                                         </td>
                                         <td> 0 </td>
                                     </tr>
@@ -105,36 +187,61 @@ const Usuario = () => {
                         <section className="matches-champions">
                             {/* Recent Matches */}
                             <div className="recent-matches">
-                                <h3> Partidas recientes </h3>
-                                <div className="match-card victory">
-                                    <div className="match-details">
-                                        <span> ARENA </span>
-                                        <span> Victoria </span>
-                                        <span> 23 min 12 s </span>
-                                    </div>
-                                    <div className="champion-stats">
-                                        <img src="src/images/ZeriP.jpg" alt="Champion Icon" />
-                                        <div className="stats">
-                                            <p> 12 / 6 / 4 </p>
-                                            <p> 2.67:1 KDA </p>
-                                        </div>
-                                    </div>
-                                    <span className="result"> Asesinato Doble </span>
-                                </div>
+                                <h3>Partidas recientes</h3>
+                                {infoPartidas && infoPartidas.length > 0 ? (
+                                    infoPartidas.map((partida, index) => {
+                                        const participante = partida.info.participants.find(
+                                            (p) => p.puuid === puuid
+                                        );
+                                        const victoria = participante.win ? "Victoria" : "Derrota";
+                                        const auxCss = participante.win ? "match-card-victory" : "match-card-defeat";
+                                        const duracionPartida = Math.floor(partida.info.gameDuration / 60) + " min " + (partida.info.gameDuration % 60) + " s";
+                                        const kda = ((participante.kills + participante.assists) / (participante.deaths || 1)).toFixed(2);
+                                        const logroAsesinato = participante.pentaKills > 0 ? "Asesinato Penta" : participante.quadraKills > 0 ? "Asesinato Cuádruple" : participante.tripleKills > 0 ? "Asesinato Triple" : participante.doubleKills > 0 ? "Asesinato Doble" : "";
+
+                                        return (
+                                            <div key={index} className={`match-card ${auxCss}`}>
+                                                <div className="match-details">
+                                                    <span>{partida.info.gameMode}</span>
+                                                    <span>{victoria}</span>
+                                                    <span>{duracionPartida}</span>
+                                                </div>
+                                                <div className="champion-stats">
+                                                    <img
+                                                        src={`http://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${participante.championName}.png`}
+                                                        alt={participante.championName}
+                                                        className="champion-icon"
+                                                    />
+                                                    <div className="stats">
+                                                        <p>
+                                                            {participante.kills} / {participante.deaths} / {participante.assists}
+                                                        </p>
+                                                        <p>{kda}:1 KDA</p>
+                                                    </div>
+                                                </div>
+                                                {logroAsesinato && (
+                                                    <span className="result">{logroAsesinato}</span>
+                                                )}
+                                            </div>
+                                        );
+                                    })
+                                ) : (
+                                    <p>Cargando partidas...</p>
+                                )}
                             </div>
 
                             {/* Champions Played */}
                             <div className="champions-played">
-                                <h3> Campeones jugados en las últimas 16 partida(s) </h3>
+                                <h3>Campeones jugados en las últimas 16 partida(s)</h3>
                                 <div className="champion-card">
                                     <img src="champion-icon-1.jpg" alt="Champion Icon" />
-                                    <p> 67% (wins) V: 1D 2.89:1 KDA </p>
+                                    <p>67% (wins) V: 1D 2.89:1 KDA</p>
                                 </div>
                             </div>
 
                             {/* Preferred Role */}
                             <div className="preferred-role">
-                                <h3> Rol preferido (Clasificatoria) </h3>
+                                <h3>Rol preferido (Clasificatoria)</h3>
                                 <div className="role-bars">
                                     <div className="bar" style={{ height: '80px' }}></div>
                                     <div className="bar" style={{ height: '50px' }}></div>
@@ -147,9 +254,9 @@ const Usuario = () => {
                     </main>
                 );
             case 'Campeones':
-                return <div> Contenido de Campeones (aquí irían estadísticas de campeones) </div>;
+                return <div>Contenido de Campeones (aquí irían estadísticas de campeones)</div>;
             case 'Maestría':
-                return <div> Contenido de Maestría (aquí irían las maestrías del usuario) </div>;
+                return <div>Contenido de Maestría (aquí irían las maestrías del usuario)</div>;
             default:
                 return null;
         }
@@ -166,7 +273,7 @@ const Usuario = () => {
                         className="profile-icon"
                     />
                     <div className="profile-details">
-                        <h1> Darth Radagon #ELDEN </h1>
+                        <h1>{datosUsuario ? datosUsuario.gameName : "Cargando..."}</h1>
                     </div>
                 </div>
             </header>

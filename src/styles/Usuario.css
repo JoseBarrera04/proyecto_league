@@ -20,7 +20,9 @@ body {
 .profile-header {
     display: flex;
     align-items: center;
-    background-color: #252a3e;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -99,7 +101,9 @@ body {
 
 .ranked-stats {
     flex: 1;
-    background-color: #252a3e;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 10px;
 }
@@ -212,7 +216,9 @@ td img {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: #252a3e;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 10px;
 }
@@ -239,23 +245,45 @@ td img {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.match-card.victory {
-    background-color: rgba(46, 204, 113, 0.1);
-    border-left: 5px solid #2ecc71;
+.match-card-victory {
+    border-left: 5px solid #2ecc71; /* Borde verde para victorias */
+    background-color: rgba(46, 204, 113, 0.1); /* Fondo verde claro */
+}
+
+.match-card-defeat {
+    border-left: 5px solid #cc2e2e; /* Borde rojo para derrotas */
+    background-color: rgba(204, 46, 46, 0.1); /* Fondo rojo claro */
+}
+
+.match-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ocupa el espacio disponible */
 }
 
 .match-details span {
     display: block;
     font-size: 14px;
     color: #a3a6b4;
+    margin-bottom: 5px;
+}
+
+.match-details span:nth-child(2) {
+    color: #2ecc71; /* Color verde para "Victoria" */
+}
+
+.match-card-defeat .match-details span:nth-child(2) {
+    color: #cc2e2e; /* Color rojo para "Derrota" */
 }
 
 .champion-stats {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex: 1; /* Ocupa el espacio disponible */
 }
 
 .champion-stats img {
@@ -264,9 +292,15 @@ td img {
     border-radius: 5px;
 }
 
+.stats {
+    display: flex;
+    flex-direction: column;
+}
+
 .stats p {
     font-size: 14px;
     color: #a3a6b4;
+    margin: 0;
 }
 
 .result {
@@ -274,6 +308,8 @@ td img {
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
+    color: #ffffff;
+    flex-shrink: 0; /* Evita que el botón se reduzca */
 }
 
 .champion-card {
@@ -320,5 +356,14 @@ td img {
 
     .matches-champions {
         padding: 10px;
+    }
+
+    .match-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .champion-stats {
+        margin: 10px 0;
     }
 }

@@ -62,8 +62,8 @@ const opinionesIniciales = [
 
 
 const Comunidad = () => {
-    const [mostrarImagenes, setMostrarImagenes] = useState(false);
-    const [mostrarForo, setMostrarForo] = useState(false);
+    const [mostrarImagenes, setMostrarImagenes] = useState(true);
+    const [mostrarForo, setMostrarForo] = useState(true);
 
     const buttonClickForo = () => {
         setMostrarForo(!mostrarForo);
@@ -81,13 +81,6 @@ const Comunidad = () => {
 
                 {/* Centrar y espaciar botones */}
                 <div className="botones-container">
-                    <button className="actualizaciones-comunidad" onClick={buttonClick}>
-                        {mostrarImagenes ? "Ocultar Actualizaciones" : "Mostrar Actualizaciones"}
-                    </button>
-
-                    <button className="foro-comunidad" onClick={buttonClickForo}>
-                        {mostrarForo ? "Ocultar Foro" : "Mostrar Foro"}
-                    </button>
                 </div>
 
                 {/* Sección de imágenes */}

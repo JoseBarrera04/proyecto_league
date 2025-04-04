@@ -5,8 +5,9 @@
     left: 0;
     width: 100%;
     padding: 15px 5%; /* Reducido para pantallas más pequeñas */
-    background: rgba(26, 30, 46, 0.9); /* Fondo oscuro semi-transparente */
-    backdrop-filter: blur(20px);
+    border: 3px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,7 +63,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #00aaff; /* Color de acento (azul) */
+    background: black; /* Color de acento (azul) */
     transition: width 0.3s;
 }
 
