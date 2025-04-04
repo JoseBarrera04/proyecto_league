@@ -12,7 +12,7 @@ const Usuario = () => {
 
     const user = useSelector(state => state.auth.username);
     const REGION = "la1";
-    const API_KEY = "RGAPI-32511dd0-5cd8-4380-9a33-58cfe45c9782";
+    const API_KEY = "RGAPI-8460847a-bcc9-4aba-8b33-d025d1ed5adb";
 
     useEffect(() => {
         const getUserData = async () => {
