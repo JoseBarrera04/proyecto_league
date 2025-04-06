@@ -4,6 +4,9 @@ const initialState = {
     username: "",
     password: "",
     isLogged: false,
+    puuid: "",
+    riotId: "",
+    tag: "",
 };
 
 const authSlice = createSlice({
@@ -14,12 +17,18 @@ const authSlice = createSlice({
             state.username = action.payload.username;
             state.password = action.payload.password;
             state.isLogged = true;
+            state.puuid = action.payload.puuid;
+            state.riotId = action.payload.riotId;
+            state.tag = action.payload.tag;
         },
 
         logout: (state) => {
             state.username = "";
             state.password = "";
             state.isLogged = false;
+            state.puuid = "";
+            state.riotId = "";
+            state.tag = "";
         },
     }
 });

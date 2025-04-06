@@ -2,7 +2,7 @@ import { FaLock, FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import React, { useState } from "react";
 import "../styles/Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../database/firebase.js';
@@ -11,9 +11,10 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
+    const [riotId, setRiotId] = useState("");
+    const [tag, setTag] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
-    const navigate = useNavigate();
 
     const manejarRegistro = async (e) => {
         e.preventDefault();
@@ -40,12 +41,11 @@ const Register = () => {
                 username: username,
                 email: email,
                 createdAt: new Date().toISOString(),
+                NombreRiot: riotId,
+                tag: tag,
             });
 
             setSuccess("Registro exitoso! Redirigiendo...");
-            setTimeout(() => {
-                navigate("/login"); // Redirige a la página de login después de 2 segundos
-            }, 2000);
         } catch (error) {
             console.error("Error al registrar:", error.message);
             setError(error.message || "Error al registrar el usuario");
@@ -87,6 +87,26 @@ const Register = () => {
                         required
                     />
                     <FaLock className="icon" />
+                </div>
+                <div className="input-box">
+                    <input
+                        type="text"
+                        placeholder="Riot ID"
+                        value={riotId}
+                        onChange={(e) => setRiotId(e.target.value)}
+                        required
+                    />
+                    <FaUser className="icon" />
+                </div>
+                <div className="input-box">
+                    <input
+                        type="text"
+                        placeholder="Tag #"
+                        value={tag}
+                        onChange={(e) => setTag(e.target.value)}
+                        required
+                    />
+                    <FaUser className="icon" />
                 </div>
                 <div className="remember-me">
                     <label>

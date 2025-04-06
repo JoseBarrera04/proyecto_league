@@ -11,6 +11,8 @@ import { auth, db } from '../database/firebase.js';
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [riotId, setRiotId] = useState("");
+    const [tag, setTag] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -46,15 +48,8 @@ const Login = () => {
                         username: doc.data().username,
                         email: doc.data().email,
                         password: password,
-                        profileIcon: doc.data().profileIcon || null,
-                        rankedSolo: doc.data().rankedSolo || {
-                            tier: "Esmeralda",
-                            rank: "I",
-                            lp: 98,
-                            wins: 5,
-                            loses: 0,
-                        },
-                        recentMatches: doc.data().recentMatches || [],
+                        riotId: riotId,
+                        tag: tag,
                     };
                 });
 

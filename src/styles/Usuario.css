@@ -249,13 +249,13 @@ td img {
 }
 
 .match-card-victory {
-    border-left: 5px solid #2ecc71; /* Borde verde para victorias */
-    background-color: rgba(46, 204, 113, 0.1); /* Fondo verde claro */
+    border-left: 5px solid greenyellow; /* Borde verde para victorias */
+    background-color: rgba(46, 204, 113, 0.25); /* Fondo verde claro */
 }
 
 .match-card-defeat {
     border-left: 5px solid #cc2e2e; /* Borde rojo para derrotas */
-    background-color: rgba(204, 46, 46, 0.1); /* Fondo rojo claro */
+    background-color: rgba(217, 75, 75, 0.24); /* Fondo rojo claro */
 }
 
 .match-details {
@@ -267,16 +267,16 @@ td img {
 .match-details span {
     display: block;
     font-size: 14px;
-    color: #a3a6b4;
+    color: white;
     margin-bottom: 5px;
 }
 
 .match-details span:nth-child(2) {
-    color: #2ecc71; /* Color verde para "Victoria" */
+    color: greenyellow; /* Color verde para "Victoria" */
 }
 
 .match-card-defeat .match-details span:nth-child(2) {
-    color: #cc2e2e; /* Color rojo para "Derrota" */
+    color: red; /* Color rojo para "Derrota" */
 }
 
 .champion-stats {
@@ -299,7 +299,7 @@ td img {
 
 .stats p {
     font-size: 14px;
-    color: #a3a6b4;
+    color: white;
     margin: 0;
 }
 

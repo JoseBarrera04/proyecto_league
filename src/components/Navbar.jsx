@@ -7,6 +7,7 @@ import { login, logout } from "../redux/slice/authSlice.jsx";
 const Navbar = () => {
     const isLogged = useSelector((state) => state.auth.isLogged);
     const username = useSelector((state) => state.auth.username);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 

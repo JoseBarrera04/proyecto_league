@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "../styles/Usuario.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import config from "../admin/Apis.js";
 
 const Usuario = () => {
     const [activeTab, setActiveTab] = useState('Resumen');
@@ -9,10 +10,11 @@ const Usuario = () => {
     const [puuid, setPuuid] = useState(null);
     const [historialPartidas, setHistorialPartidas] = useState(null);
     const [infoPartidas, setInfoPartidas] = useState(null);
+    const [datosClasificatoria, setDatosClasificatoria] = useState(null);
 
     const user = useSelector(state => state.auth.username);
     const REGION = "la1";
-    const API_KEY = "RGAPI-32511dd0-5cd8-4380-9a33-58cfe45c9782";
+    const API_KEY = config.API_KEY;
 
     useEffect(() => {
         const getUserData = async () => {
@@ -105,6 +107,10 @@ const Usuario = () => {
         };
         fetchDetallesPartidas();
     }, [historialPartidas]);
+
+    useEffect(() => {
+        if (!puuid) return;
+    }, [puuid]);
 
     if (!user) {
         return <div> Por favor, inicia sesión para ver esta página. </div>;
@@ -232,7 +238,7 @@ const Usuario = () => {
 
                             {/* Champions Played */}
                             <div className="champions-played">
-                                <h3>Campeones jugados en las últimas 16 partida(s)</h3>
+                                <h3>Campeones jugados en las últimas 10 partida(s)</h3>
                                 <div className="champion-card">
                                     <img src="champion-icon-1.jpg" alt="Champion Icon" />
                                     <p>67% (wins) V: 1D 2.89:1 KDA</p>
