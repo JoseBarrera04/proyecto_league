@@ -1,5 +1,5 @@
 const config = {
-    API_KEY: "RGAPI-bfc3ece7-fdcd-45d0-bb80-246cef57991b"
+    API_KEY: "RGAPI-28f0f3af-aec0-41f9-9d48-88d7c5dbe669"
 };
 
 export default config;
