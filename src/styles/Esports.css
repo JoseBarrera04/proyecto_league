@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "Beaufort for LOL";
+    src: url("../assets/fonts/BeaufortforLOL-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Beaufort for LOL";
+    src: url("../assets/fonts/BeaufortforLOL-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Beaufort for LOL";
+    src: url("../assets/fonts/BeaufortforLOL-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Contenedor Principal */
+.esports-container {
+    padding: 55rem 1.5rem 2rem;
+    background: rgba(4, 17, 35, 0.75);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+/* Título */
+.esports-title {
+    font-size: 7rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+    font-family: "Beaufort for LOL", sans-serif;
+    letter-spacing: -1px;
+}
+
+/* Grid de Noticias */
+.esports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 0 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Tarjeta */
+.card-noticia {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; /* quitar subrayado */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(20, 24, 28, 0.9);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-noticia:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(0, 170, 255, 0.3);
+}
+
+/* Imagen */
+.noticia-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card-noticia:hover .noticia-img {
+    transform: scale(1.05);
+}
+
+/* Contenido */
+.noticia-content {
+    padding: 1.2rem;
+    color: white;
+}
+
+.noticia-fecha {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin-bottom: 0.4rem;
+    font-family: "Beaufort for LOL", sans-serif;
+}
+
+/* Título */
+.noticia-titulo {
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    font-family: "Beaufort for LOL", sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+/* Quitar subrayado si es h3 envuelto en a */
+.card-noticia h3,
+.card-noticia h2 {
+    text-decoration: none !important;
+}
