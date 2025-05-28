@@ -8,6 +8,7 @@ import Ajustes from './pages/Ajustes.jsx';
 import Register from "./pages/Register.jsx";
 import Comunidad from "./pages/Comunidad.jsx";
 import Chat from "./pages/Chat.jsx";
+import Esports from "./pages/Esports.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/comunidad" element={<Comunidad />} />
                     <Route path="/ajustes" element={<Ajustes />} />
                     <Route path="/chat" element={<Chat />} />
+                    <Route path="/esports" element={<Esports />} />
                 </Routes>
             </div>
         </>
