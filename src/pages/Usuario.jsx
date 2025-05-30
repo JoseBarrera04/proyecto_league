@@ -280,8 +280,10 @@ const Usuario = () => {
                     />
                     <div className="profile-details">
                         <h1>{datosUsuario ? datosUsuario.gameName : "Cargando..."}</h1>
+                        <p className="riot-id">#{datosUsuario ? datosUsuario.tagLine : ""}</p>
                     </div>
                 </div>
+                <span className="update-timer">Last updated: 2 days ago</span>
             </header>
 
             {/* Navigation Tabs */}

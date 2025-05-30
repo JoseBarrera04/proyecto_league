@@ -1,77 +1,121 @@
-.card {
-    width: 200px;
-    background-color: rgba(36, 40, 50, 1);
-    background-image: linear-gradient(
-            139deg,
-            rgba(36, 40, 50, 1) 0%,
-            rgba(36, 40, 50, 1) 0%,
-            rgba(37, 28, 40, 1) 100%
-    );
+.settings-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: calc(100vh - 140px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-    border-radius: 10px;
-    padding: 15px 0px;
+.card {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(36, 40, 50, 1);
+    background-image: linear-gradient(139deg, rgba(36, 40, 50, 1), rgba(37, 28, 40, 1));
+    border-radius: 12px;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.25);
+    border: 2px solid rgba(0, 170, 255, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
 }
 
 .card .separator {
     border-top: 1.5px solid #42434a;
+    margin: 0 15px;
 }
 
 .card .list {
-    list-style-type: none;
+    list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 0px 10px;
+    gap: 14px;
+    padding: 0 20px;
 }
 
 .card .list .element {
     display: flex;
     align-items: center;
-    color: #7e8590;
-    gap: 10px;
-    transition: all 0.3s ease-out;
-    padding: 4px 7px;
-    border-radius: 6px;
+    color: #adb2c7;
+    gap: 14px;
+    transition: all 0.3s ease;
+    padding: 10px 12px;
+    border-radius: 8px;
     cursor: pointer;
+    background-color: transparent;
+    transform: scale(1);
 }
 
 .card .list .element svg {
-    width: 19px;
-    height: 19px;
-    transition: all 0.3s ease-out;
+    width: 22px;
+    height: 22px;
+    transition: all 0.3s ease-in-out;
 }
 
-.card .list .element .label {
+.card .list .element .label,
+.card .list .element a.label {
     font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
 }
 
 .card .list .element:hover {
-    background-color: #5353ff;
+    background-color: rgba(0, 170, 255, 0.1);
     color: #ffffff;
-    transform: translate(1px, -1px);
-}
-.card .list .delete:hover {
-    background-color: #8e2a2a;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 170, 255, 0.2);
 }
 
 .card .list .element:active {
-    transform: scale(0.99);
+    transform: scale(0.98);
 }
 
-.card .list:not(:last-child) .element:hover svg {
-    stroke: #ffffff;
+.card .list .element:hover svg {
+    transform: scale(1.15);
+    color: #00aaff;
 }
 
-.card .list:last-child svg {
-    stroke: #bd89ff;
-}
-.card .list:last-child .element {
+/* Estilo para el último botón */
+.card .list.final-section .element {
     color: #bd89ff;
 }
 
-.card .list:last-child .element:hover {
-    background-color: rgba(56, 45, 71, 0.836);
+.card .list.final-section .element:hover {
+    background-color: rgba(189, 137, 255, 0.1);
+    color: white;
+}
+
+.card .list.final-section .element:hover svg {
+    color: #bd89ff;
+    transform: scale(1.15);
+}
+
+.card .list .element a.label:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        padding: 1rem;
+    }
+
+    .card {
+        max-width: 100%;
+        padding: 15px 0;
+    }
+
+    .card .list .element {
+        padding: 8px 10px;
+    }
+
+    .card .list .element .label,
+    .card .list .element a.label {
+        font-size: 1rem;
+    }
 }

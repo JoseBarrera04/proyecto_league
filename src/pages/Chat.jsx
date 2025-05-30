@@ -78,7 +78,7 @@ const Chat = () => {
     return (
         <div className="parent">
             <div className="usuario">
-                <img className="img-usuario" src="src/images/ZeriP.jpg" />
+                <img className="img-usuario" src="src/images/ZeriP.jpg" alt="User" />
                 <h6>{user.username || "Usuario"}</h6>
                 <HiDotsHorizontal />
                 <BsCameraVideoFill />
@@ -86,17 +86,15 @@ const Chat = () => {
 
             <div className="lista-amigos">
                 <div className="amigos">
-                    <div className="amigo">
-                        {amigos.map((amigo) => (
-                            <div key={amigo.id} className="amigo" onClick={() => setAmigoActual(amigo)}>
-                                <img className="img-amigo" src="src/images/icons/ekko.jpg" />
-                                <div>
-                                    <h6>{amigo.username}</h6>
-                                    <p>Sale aram o que</p>
-                                </div>
+                    {amigos.map((amigo) => (
+                        <div key={amigo.id} className="amigo" onClick={() => setAmigoActual(amigo)}>
+                            <img className="img-amigo" src="src/images/icons/ekko.jpg" alt="Friend" />
+                            <div>
+                                <h6>{amigo.username}</h6>
+                                <p>Sale aram o que</p>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
@@ -123,7 +121,7 @@ const Chat = () => {
                     onChange={(e) => setMensaje(e.target.value)}
                 />
                 <MdEmojiEmotions />
-                <button type="button" onClick={mandarMensaje}> Enviar </button>
+                <button type="button" onClick={mandarMensaje}>Enviar</button>
             </div>
 
             <div className="div6">Perfil Amigo</div>

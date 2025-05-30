@@ -1,22 +1,20 @@
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* Replace the gradient with the background image */
+    background-image: url('src/images/potencialCambio.jpg'); /* Adjust the path as needed */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    font-family: "Beaufort for LOL", sans-serif; /* Keep your font */
+    color: white;
 }
 
-body {
-    font-family: 'Beaufort for LOL', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url("src/images/lol-universe-2020.png") no-repeat center center fixed;;
-    background-size: cover;
-    background-position: center;
-}
-
-Link {
-    text-decoration: none;
+.app-content {
+    /* Ensure the content area doesn't override the background */
+    background: transparent;
+    min-height: 100vh; /* Ensure content area spans the full height */
+    padding-top: 140px; /* Match the padding from previous adjustments to avoid navbar overlap */
 }

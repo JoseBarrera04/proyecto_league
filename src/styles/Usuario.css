@@ -1,3 +1,24 @@
+@font-face {
+    font-family: "Beaufort for LOL";
+    src: url("../assets/fonts/BeaufortforLOL-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Beaufort for LOL";
+    src: url("../assets/fonts/BeaufortforLOL-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Beaufort for LOL";
+    src: url("../assets/fonts/BeaufortforLOL-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,291 +26,341 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    color: #ffffff;
-    padding-top: 90px;
+    font-family: "Beaufort for LOL", sans-serif;
+    color: white;
+    padding-top: 140px; /* espacio suficiente para navbar fija */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Ajustamos altura mínima y crecimiento natural */
 .profile-container {
-    max-width: 1200px;
+
+    max-width: 1300px;
     margin: 0 auto;
-    max-height: 650px;
-    padding-bottom: 100px;
+    padding: 1.5rem;
+    background: rgba(20, 24, 28, 0.9);
+    border: 2px solid rgba(0, 170, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(20px);
+    flex-grow: 1; /* se expande para ocupar el alto disponible */
+    min-height: calc(100vh - 160px); /* asegura que al menos ocupe toda la pantalla menos navbar */
 }
 
 .profile-header {
+    padding: 50rem 1.5rem 2rem;
+    font-family: "Beaufort for LOL", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(20, 24, 28, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(20px);
+    flex-shrink: 0;
+}
+
+.profile-info {
+
+    font-family: "Beaufort for LOL", sans-serif;
     display: flex;
     align-items: center;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
 }
 
 .profile-icon {
-    width: 80px;
+    width: 90px;
     height: 80px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-right: 2rem;
+    object-fit: cover;
+    border: 2px solid #00aaff;
 }
 
 .profile-details h1 {
-    font-size: 24px;
-    margin-bottom: 5px;
-    color: #fff;
+    font-family: "Beaufort for LOL", sans-serif;
+    color: white;
+    margin-bottom: 0.3rem;
+    font-weight: bold; /* Use bold variant of the font */
+    overflow-wrap: break-word; /* Ensure long names wrap */
 }
 
-.profile-details p {
-    color: #a3a6b4;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.riot-id {
+.profile-details .riot-id {
     color: #00aaff;
-    cursor: pointer;
-}
-
-.update-button {
-    background-color: #00aaff;
-    border: none;
-    padding: 8px 16px;
-    color: #ffffff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.update-button:hover {
-    background-color: #0088cc;
+    font-family: "Beaufort for LOL", sans-serif;
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
 }
 
 .update-timer {
-    font-size: 12px;
-    color: #a3a6b4;
+    font-size: 0.8rem;
+    font-family: "Beaufort for LOL", sans-serif;
+    color: #ccc;
+    font-weight: 300; /* Use light variant of the font */
 }
 
 .nav-tabs {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-shrink: 0;
 }
 
 .tab {
-    background-color: #252a3e;
-    border: none;
-    padding: 10px 20px;
-    color: #a3a6b4;
-    font-size: 16px;
+    background: #2c3445;
+    font-family: "Beaufort for LOL", sans-serif;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: 0.3s ease;
+    border: none;
+    font-size: 1rem;
+    min-width: 100px;
+    text-align: center;
+    font-weight: normal; /* Use regular variant of the font */
+    overflow-wrap: break-word; /* Ensure text fits */
 }
 
-.tab:hover,
-.tab.active {
-    background-color: #00aaff;
-    color: #ffffff;
+.tab.active,
+.tab:hover {
+    background: #00aaff;
+    color: white;
 }
 
+/* Permite scroll si el contenido crece demasiado */
 .main-content {
     display: flex;
-    gap: 20px;
+    gap: 2rem;
+    flex: 1;
+    font-family: "Beaufort for LOL", sans-serif;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .ranked-stats {
     flex: 1;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
+    background: rgba(20, 24, 28, 0.9);
+    padding: 1.5rem;
+    font-family: "Beaufort for LOL", sans-serif;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    min-width: 0;
 }
 
 .tabs {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 0.7rem;
+    font-family: "Beaufort for LOL", sans-serif;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; /* Allow sub-tabs to wrap if they don't fit */
 }
 
 .sub-tab {
-    background-color: #3a3f5a;
-    border: none;
-    padding: 8px 16px;
-    color: #a3a6b4;
-    font-size: 14px;
+    background: #2c3445;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: 0.3s ease;
+    border: none;
+    font-size: 0.9rem;
+    min-width: 80px;
+    text-align: center;
+    font-weight: normal;
+    overflow-wrap: break-word;
 }
 
-.sub-tab:hover,
-.sub-tab.active {
-    background-color: #00aaff;
-    color: #ffffff;
+.sub-tab.active,
+.sub-tab:hover {
+    background: #00aaff;
+    color: white;
 }
 
 .ranked-section {
-    margin-bottom: 20px;
-    color: #ffffff;
+    margin-bottom: 1.5rem;
 }
 
 .ranked-section h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    font-family: "Beaufort for LOL", sans-serif;
 }
 
 .queue-type {
-    display: inline-block;
-    background-color: #3a3f5a;
-    padding: 5px 10px;
+    background: #3a3f5a;
+    padding: 0.3rem 0.7rem;
     border-radius: 5px;
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    color: white;
+    font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 th,
 td {
-    padding: 10px;
+    padding: 0.5rem;
     text-align: left;
-    font-size: 14px;
-    color: #a3a6b4;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: normal;
+    overflow-wrap: break-word; /* Ensure table text wraps */
 }
 
 th {
-    background-color: #3a3f5a;
+    background: #2c3445;
+    font-weight: bold;
 }
 
 td img {
     width: 20px;
     height: 20px;
     vertical-align: middle;
-    margin-right: 5px;
+    margin-right: 0.3rem;
 }
 
 .win-rate {
+    margin-top: 1.5rem;
     text-align: center;
 }
 
 .win-rate-circle {
-    width: 100px;
-    height: 100px;
-    background: conic-gradient(#00aaff 0% 63%, #3a3f5a 63% 100%);
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 0.5rem;
     border-radius: 50%;
+    background: conic-gradient(#00aaff 0% 63%, #2c3445 63% 100%);
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 auto 10px;
+    align-items: center;
     position: relative;
+    border: 2px solid #00aaff;
 }
 
 .win-rate-circle::before {
     content: '';
     position: absolute;
-    width: 80px;
-    height: 80px;
-    background-color: transparent;
-    border-radius: 10px;
+    width: 90px;
+    height: 90px;
+    background: rgba(20, 24, 28, 0.9);
+    border-radius: 50%;
 }
 
 .win-rate-circle span {
-    position: relative;
-    font-size: 20px;
+    color: white;
     font-weight: bold;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .win-rate p {
-    font-size: 14px;
-    color: #a3a6b4;
+    font-size: 0.9rem;
+    color: white;
+    margin: 0.3rem 0;
+    line-height: 1.2;
+    font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 .matches-champions {
     flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
+    gap: 1.5rem;
+    background: rgba(20, 24, 28, 0.9);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    min-width: 0;
 }
 
 .recent-matches,
 .champions-played,
 .preferred-role {
-    padding: 0;
-    border-radius: 0;
-    color: #ffffff;
+    color: white;
 }
 
 .recent-matches h3,
 .champions-played h3,
 .preferred-role h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: bold;
+    overflow-wrap: break-word;
 }
 
 .match-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .match-card-victory {
-    border-left: 5px solid greenyellow; /* Borde verde para victorias */
-    background-color: rgba(46, 204, 113, 0.25); /* Fondo verde claro */
+    border-left: 4px solid #00ff88;
 }
 
 .match-card-defeat {
-    border-left: 5px solid #cc2e2e; /* Borde rojo para derrotas */
-    background-color: rgba(217, 75, 75, 0.24); /* Fondo rojo claro */
+    border-left: 4px solid #ff5555;
 }
 
 .match-details {
     display: flex;
     flex-direction: column;
-    flex: 1; /* Ocupa el espacio disponible */
+    flex: 1;
 }
 
 .match-details span {
-    display: block;
-    font-size: 14px;
+    font-size: 0.9rem;
     color: white;
-    margin-bottom: 5px;
+    margin-bottom: 0.3rem;
+    font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 .match-details span:nth-child(2) {
-    color: greenyellow; /* Color verde para "Victoria" */
+    color: #00ff88;
 }
 
 .match-card-defeat .match-details span:nth-child(2) {
-    color: red; /* Color rojo para "Derrota" */
+    color: #ff5555;
 }
 
 .champion-stats {
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex: 1; /* Ocupa el espacio disponible */
+    gap: 0.7rem;
+    flex: 1;
 }
 
 .champion-stats img {
     width: 40px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .stats {
@@ -298,56 +369,77 @@ td img {
 }
 
 .stats p {
-    font-size: 14px;
-    color: white;
     margin: 0;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 .result {
-    background-color: #00aaff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #ffffff;
-    flex-shrink: 0; /* Evita que el botón se reduzca */
+    background: #00aaff;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: white;
+    flex-shrink: 0;
+    font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 .champion-card {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 0.7rem;
+    margin-bottom: 0.5rem;
 }
 
 .champion-card img {
     width: 40px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .champion-card p {
-    font-size: 14px;
-    color: #a3a6b4;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 .preferred-role .role-bars {
     display: flex;
-    gap: 10px;
+    gap: 0.5rem;
 }
 
 .role-bars .bar {
     width: 20px;
-    background-color: #00aaff;
+    background: #00aaff;
     border-radius: 5px;
+    height: 100px;
+    position: relative;
+}
+
+.role-bars .bar::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: white;
+    white-space: nowrap;
+    font-weight: normal;
 }
 
 @media (max-width: 768px) {
     body {
-        padding-top: 70px;
+        padding-top: 100px; /* Adjusted for mobile navbar */
     }
 
     .profile-container {
-        padding: 10px;
+        padding: 1rem;
+        min-height: 600px;
     }
 
     .main-content {
@@ -355,7 +447,7 @@ td img {
     }
 
     .matches-champions {
-        padding: 10px;
+        padding: 1rem;
     }
 
     .match-card {
@@ -364,6 +456,20 @@ td img {
     }
 
     .champion-stats {
-        margin: 10px 0;
+        margin: 0.5rem 0;
+    }
+
+    .win-rate-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .win-rate-circle::before {
+        width: 80px;
+        height: 80px;
+    }
+
+    .win-rate-circle span {
+        font-size: 1.2rem;
     }
 }
